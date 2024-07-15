@@ -1,0 +1,6 @@
+com\studentproject\demo\StudentprojectApplication.class
+com\studentproject\demo\controllor\StudentControllor.class
+com\studentproject\demo\entity\Student.class
+com\studentproject\demo\service\Studentservice.class
+com\studentproject\demo\repo\StudentRepository.class
+com\studentproject\demo\service\StudentServiceImpl.class
