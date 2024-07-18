@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.studentproject.demo1.entity.Student;
+import com.studentproject.demo1.error.StudentNotFounfException;
 import com.studentproject.demo1.repository.StudentRepository;
 
 @Service
@@ -25,9 +26,12 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student fetchStudentDataById(Long studentID) {
+    public Student fetchStudentDataById(Long studentID)throws StudentNotFounfException {
         Optional<Student> studentOptional = studentRepository.findById(studentID);
-        return studentOptional.orElse(null);
+        if(!(studentOptional.isPresent())) {
+        	throw new StudentNotFounfException ("Invalid");
+        }
+        return studentOptional.get();
     }
 
     @Override
